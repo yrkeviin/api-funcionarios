@@ -13,17 +13,17 @@ const exportDepartamentoPDF = async (req, res)=> {
         doc.pipe(res);
 
         //titulo
-        doc.fontSize(30).text("Relatorio dos Departamentos", {align: "center"});
+        doc.fontSize(30).text("Relatório dos Departamentos", {align: "center"});
         doc.moveDown();
 
         //cabeçalho
-        doc.fontSize(18).text("Id | Nome | Departamento", {underline: true});
+        doc.fontSize(18).text("Id | Nome", {underline: true});
         doc.moveDown(0.5);
 
         // add dados departamentos
         departamentos.forEach((departamentos) => {
             doc.text(
-                `${departamentos.id} | ${departamentos.name} | ${departamentos.departamento_id}`,
+                `${departamentos.id} | ${departamentos.name}`,
             )
         });
         doc.end();

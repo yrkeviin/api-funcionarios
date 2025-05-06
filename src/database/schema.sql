@@ -17,24 +17,24 @@ CREATE TABLE funcionarios (
 
 INSERT INTO departamentos (name) VALUES 
     ('Financeiro'),
-    ('Produção'),
-    ('Logística'),
+    ('Producao'),
+    ('Logistica'),
     ('Marketing e Vendas'),
-    ('Administração');
+    ('Administracao');
 
 INSERT INTO funcionarios (name, cidade, departamento_id) VALUES 
-    ('Júlia', 'Valinhos', 1),
+    ('Julia', 'Valinhos', 1),
     ('Gabriela', 'Sao Paulo', 2),
     ('Jack', 'Campinas', 3),
     ('Gabriel', 'Vinhedo', 4),
-    ('Kevin', 'Hortolândia', 5),
+    ('Kevin', 'Hortolandia', 5),
     ('Fernanda', 'Sao Paulo', 1),
     ('Beatriz', 'Sao Paulo', 2),
     ('Larissa', 'Vinhedo', 3),
     ('Guilherme', 'Vinhedo',4),
-    ('Mateus', 'Hortolândia', 5),
+    ('Mateus', 'Hortolandia', 5),
     ('Richard', 'Campinas', 1),
     ('Ana', 'Valinhos', 2),
-    ('Persy', 'Hortolândia', 3),
-    ('Maria', 'Hortolândia', 4),
-    ('Luiza', 'Hortolândia', 5);
+    ('Persy', 'Hortolandia', 3),
+    ('Maria', 'Hortolandia', 4),
+    ('Luiza', 'Hortolandia', 5);
