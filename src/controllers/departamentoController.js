@@ -30,4 +30,22 @@ const createDepartamento = async (req, res) => {
     }
 };
 
-module.exports = { getAllDepartamentos, getDepartamento, createDepartamento };
+const updateDepartamento = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, photo } = req.body;
+
+        const updatedDepartamento = await departamentoModel.updateDepartamento(id, name, photo);
+
+        if (!updatedDepartamento) {
+            return res.status(404).json({ message: "Departamento não encontrado!" });
+        }
+
+        res.json(updatedDepartamento);
+    } catch (error) {
+        console.error("Erro ao atualizar departamento:", error);
+        res.status(500).json({ message: "Erro ao atualizar departamento!" });
+    }
+};
+
+module.exports = { getAllDepartamentos, getDepartamento, createDepartamento, updateDepartamento };

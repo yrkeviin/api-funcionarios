@@ -18,4 +18,12 @@ const createDepartamento = async (name) => {
     return result.rows[0];
 };
 
-module.exports = { getDepartamentos, getDepartamentoById, createDepartamento };
+const updateDepartamento = async (id, name) => {
+    const result = await pool.query(
+        "UPDATE departamentos SET name = $1 WHERE id = $2 RETURNING *",
+        [name, id]
+    );
+    return result.rows[0];
+};
+
+module.exports = { getDepartamentos, getDepartamentoById, createDepartamento, updateDepartamento };
