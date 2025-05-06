@@ -21,4 +21,12 @@ const getFuncionarioById = async (id) => {
     return result.rows[0];
 };
 
-module.exports = { getFuncionarios, getFuncionarioById };
+const createFuncionario = async (name, cidade, departamento_id) => {
+    const result = await pool.query(
+        "INSERT INTO funcionarios (name, cidade, departamento_id) VALUES ($1, $2, $3) RETURNING *",
+        [name, cidade, departamento_id]
+    );
+    return result.rows[0];
+};
+
+module.exports = { getFuncionarios, getFuncionarioById, createFuncionario };

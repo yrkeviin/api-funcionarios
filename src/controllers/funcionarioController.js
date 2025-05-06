@@ -23,4 +23,14 @@ const getFuncionario = async (req, res) => {
     }
 };
 
-module.exports = { getAllFuncionarios, getFuncionario };
+const createFuncionario = async (req, res) => {
+    try {
+        const { name, cidade, departamento_id} = req.body;
+        const newFuncionario = await funcionarioModel.createFuncionario(name, cidade, departamento_id);
+        res.status(201).json(newFuncionario);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao criar funcionário!" });
+    }   
+};
+
+module.exports = { getAllFuncionarios, getFuncionario, createFuncionario };

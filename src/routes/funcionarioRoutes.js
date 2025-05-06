@@ -4,5 +4,6 @@ const funcionarioController = require("../controllers/funcionarioController");
 
 router.get("/", funcionarioController.getAllFuncionarios);
 router.get("/:id", funcionarioController.getFuncionario);
+router.post("/", funcionarioController.createFuncionario);
 
 module.exports = router;
