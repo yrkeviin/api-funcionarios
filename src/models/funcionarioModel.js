@@ -1,12 +1,24 @@
 const pool = require("../config/database");
 
-const getFuncionarios = async (name) => {
-    if(!name){
+const getFuncionarios = async (cidade) => {
+    if(!cidade){
         const result = await pool.query("SELECT * FROM funcionarios");
         return result.rows;
     }
     else{
-        const result = await pool.query("SELECT * FROM funcionarios WHERE cidade ILIKE $1", [`%${name}%`]);
+        const result = await pool.query("SELECT * FROM funcionarios WHERE name ILIKE $1", [`%${cidade}%`]);
         return result.rows;
     }
 };
+
+const getFuncionarioById = async (id) => {
+    const result = await pool.query(
+        `SELECT funcionarios.*, departamentos.name AS departamento_name 
+         FROM funcionarios 
+         LEFT JOIN departamentos ON funcionarios.departamento_id = departamentos.id 
+         WHERE funcionarios.id = $1`, [id]
+    );
+    return result.rows[0];
+};
+
+module.exports = { getFuncionarios, getFuncionarioById };
