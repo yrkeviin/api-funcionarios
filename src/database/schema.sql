@@ -14,6 +14,8 @@ CREATE TABLE funcionarios (
     departamento_id INTEGER REFERENCES departamentos(id) ON DELETE SET NULL
 );
 
+ALTER TABLE funcionarios ADD COLUMN photo TEXT;
+
 INSERT INTO departamentos (name) VALUES 
     ('Financeiro'),
     ('Producao'),
