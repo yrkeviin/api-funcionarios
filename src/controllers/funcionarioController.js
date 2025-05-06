@@ -33,4 +33,10 @@ const createFuncionario = async (req, res) => {
     }   
 };
 
-module.exports = { getAllFuncionarios, getFuncionario, createFuncionario };
+const updateFuncionario = async (req, res) => {
+    const { name, cidade, departamento_id } = req.body;
+    const updatedFuncionario = await funcionarioModel.updateFuncionario(req.params.id, name, cidade, departamento_id);
+    res.json(updatedFuncionario);
+};
+
+module.exports = { getAllFuncionarios, getFuncionario, createFuncionario, updateFuncionario };

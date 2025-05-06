@@ -29,4 +29,12 @@ const createFuncionario = async (name, cidade, departamento_id) => {
     return result.rows[0];
 };
 
-module.exports = { getFuncionarios, getFuncionarioById, createFuncionario };
+const updateFuncionario = async (id, name, cidade, departamento_id) => {
+    const result = await pool.query(
+        "UPDATE funcionarios SET name = $1, cidade = $2, departamento_id = $3 WHERE id = $4 RETURNING *",
+        [name, cidade, departamento_id, id]
+    );
+    return result.rows[0];
+};
+
+module.exports = { getFuncionarios, getFuncionarioById, createFuncionario, updateFuncionario };
