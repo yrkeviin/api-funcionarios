@@ -7,7 +7,7 @@ const exportDepartamentoPDF = async (req, res)=> {
         const departamentos = await DepartamentoModel.getDepartamentos();
 
         res.setHeader("Content-Type", "application/pdf");
-        res.setHeader("Content-Disposition", "inline; filename=users.pdf");
+        res.setHeader("Content-Disposition", "inline; filename=funcionarios&departamentos.pdf");
 
         const doc = new PDFDocument();
         doc.pipe(res);

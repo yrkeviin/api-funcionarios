@@ -24,8 +24,7 @@ const getDepartamento = async (req, res) => {
 const createDepartamento = async (req, res) => {
     try {
         const { name } = req.body;
-        const photo = req.file ? req.file.filename : null;
-        const newDepartamento = await departamentoModel.createDepartamento(name, photo);;
+        const newDepartamento = await departamentoModel.createDepartamento(name);;
         res.status(201).json(newDepartamento);
     } catch (error) {
         res.status(500).json({ message: "Erro ao criar departamento!" });
@@ -35,9 +34,9 @@ const createDepartamento = async (req, res) => {
 const updateDepartamento = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, photo } = req.body;
+        const { name } = req.body;
 
-        const updatedDepartamento = await departamentoModel.updateDepartamento(id, name, photo);
+        const updatedDepartamento = await departamentoModel.updateDepartamento(id, name);
 
         if (!updatedDepartamento) {
             return res.status(404).json({ message: "Departamento não encontrado!" });

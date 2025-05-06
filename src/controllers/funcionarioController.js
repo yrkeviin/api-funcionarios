@@ -26,7 +26,8 @@ const getFuncionario = async (req, res) => {
 const createFuncionario = async (req, res) => {
     try {
         const { name, cidade, departamento_id} = req.body;
-        const newFuncionario = await funcionarioModel.createFuncionario(name, cidade, departamento_id);
+        const photo = req.file ? req.file.filename : null;
+        const newFuncionario = await funcionarioModel.createFuncionario(name, cidade, photo, departamento_id);
         res.status(201).json(newFuncionario);
     } catch (error) {
         res.status(500).json({ message: "Erro ao criar funcionário!" });

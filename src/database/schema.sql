@@ -4,8 +4,7 @@ CREATE DATABASE funcionariosdb;
 
 CREATE TABLE departamentos (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
-    photo TEXT
+    name VARCHAR(100) UNIQUE NOT NULL
 );
 
 CREATE TABLE funcionarios (

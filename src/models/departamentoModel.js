@@ -10,10 +10,10 @@ const getDepartamentoById = async (id) => {
     return result.rows[0];
 };
 
-const createDepartamento = async (name, photo) => {
+const createDepartamento = async (name) => {
     const result = await pool.query(
-        "INSERT INTO departamentos (name, photo) VALUES ($1, $2) RETURNING *",
-        [name, photo]
+        "INSERT INTO departamentos (name) VALUES ($1) RETURNING *",
+        [name]
     );
     return result.rows[0];
 };
