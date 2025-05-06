@@ -39,4 +39,9 @@ const updateFuncionario = async (req, res) => {
     res.json(updatedFuncionario);
 };
 
-module.exports = { getAllFuncionarios, getFuncionario, createFuncionario, updateFuncionario };
+const deleteFuncionario = async (req, res) => {
+    const message = await funcionarioModel.deleteFuncionario(req.params.id);
+    res.json(message);
+};
+
+module.exports = { getAllFuncionarios, getFuncionario, createFuncionario, updateFuncionario, deleteFuncionario };

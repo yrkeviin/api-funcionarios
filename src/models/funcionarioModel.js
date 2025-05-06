@@ -37,4 +37,9 @@ const updateFuncionario = async (id, name, cidade, departamento_id) => {
     return result.rows[0];
 };
 
-module.exports = { getFuncionarios, getFuncionarioById, createFuncionario, updateFuncionario };
+const deleteFuncionario = async (id) => {
+    await pool.query("DELETE FROM funcionarios WHERE id = $1", [id]);
+    return { message: "Funcionário deletado" };
+};
+
+module.exports = { getFuncionarios, getFuncionarioById, createFuncionario, updateFuncionario, deleteFuncionario };
