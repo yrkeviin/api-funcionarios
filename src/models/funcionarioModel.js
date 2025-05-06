@@ -6,7 +6,7 @@ const getFuncionarios = async (cidade) => {
         return result.rows;
     }
     else{
-        const result = await pool.query("SELECT * FROM funcionarios WHERE name ILIKE $1", [`%${cidade}%`]);
+        const result = await pool.query("SELECT * FROM funcionarios WHERE cidade ILIKE $1", [`%${cidade}%`]);
         return result.rows;
     }
 };
