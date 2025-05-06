@@ -26,4 +26,9 @@ const updateDepartamento = async (id, name) => {
     return result.rows[0];
 };
 
-module.exports = { getDepartamentos, getDepartamentoById, createDepartamento, updateDepartamento };
+const deleteDepartamento = async (id) => {
+    const result = await pool.query("DELETE FROM departamentos WHERE id = $1 RETURNING *", [id]);
+    return result.rows[0];
+};
+
+module.exports = { getDepartamentos, getDepartamentoById, createDepartamento, updateDepartamento, deleteDepartamento };

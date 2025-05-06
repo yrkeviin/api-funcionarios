@@ -48,4 +48,16 @@ const updateDepartamento = async (req, res) => {
     }
 };
 
-module.exports = { getAllDepartamentos, getDepartamento, createDepartamento, updateDepartamento };
+const deleteDepartamento = async (req, res) => {
+    try {
+        const departamentoDeleted = await departamentoModel.deleteDepartamento(req.params.id);
+        if (!departamentoDeleted) {
+            return res.status(404).json({ message: "Departamento não encontrado!" });
+        }
+        res.json({ message: "Departamento deletado com sucesso!" });
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao deletar departamento!" });
+    }
+};
+
+module.exports = { getAllDepartamentos, getDepartamento, createDepartamento, updateDepartamento, deleteDepartamento };
