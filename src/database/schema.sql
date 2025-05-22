@@ -26,9 +26,9 @@ INSERT INTO departamentos (name) VALUES
 INSERT INTO funcionarios (name, cidade, departamento_id, photo) VALUES 
     ('Kevin', 'Hortolandia', 5, '/image/kevinUser.png'),
     ('Jade', 'Sao Paulo', 1, '/image/jadeUser.png'),
-    ('Beatriz', 'Sao Paulo', 2, null),
-    ('Larissa', 'Vinhedo', 3, null),
-    ('Guilherme', 'Vinhedo', 4, null),
+    ('Megan', 'Sao Paulo', 2, '/image/foxUser.jpg'),
+    ('Michael', 'Vinhedo', 3, '/image/michaelUser.png'),
+    ('Carla', 'Vinhedo', 4, '/image/carlaUser.jpg'),
     ('Carlos', 'Campinas', 1, null),
     ('Mariana', 'Valinhos', 2, null),
     ('João', 'Vinhedo', 3, null),
